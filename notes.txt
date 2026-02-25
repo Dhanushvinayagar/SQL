@@ -1,0 +1,62 @@
+1.Views vs CTEs:
+View 
+- it will create a virtual table of the original table. 
+- All the operations performed on the view will be performed on the original table.
+
+CTE 
+- it will create a temporary table that can be used in a query.
+- Treated as a seperate entity and can be used in multiple queries.
+
+2.PROC over MODIFIES SQL DATA in function
+ - Not a good practice use PROCEDURE instead
+ - Because heavy data modification, business logic and transaction can be handled by PROCEDURE in a better way
+
+3.DELIMITER
+- used to delimit the start and end of the function
+- ';' is used to delimit the end of the function
+- Since we use multiple query and statement ';' will cause issue 
+- so we use DELIMITER $$ to delimit the start and end of the function
+- ADD DELIMITER ; at the end to restore the default delimiter
+Example:
+
+DELIMITER $$
+    SQL CODE 
+$$
+
+DELIMITER ;
+
+4. BEGIN DECLARE END RETURN
+- BEGIN - is used to start the function
+- DECLARE - is used to declare a variable
+- END - is used to end the function
+- RETURN - is used to return the value
+Template:
+
+DELIMITER $$
+    CREATE PROCEDURE PROCEDURE_NAME()
+    BEGIN
+
+    END $$
+DELIMITER ; 
+
+5. Like vs Regex
+
+Like - to search for a pattern in a string basic wildecards(%, _) and faster (can use index)
+Regex - to search for a pattern in a string more advanced wildecards slower than Like also cannot use index
+
+6. EXISTS vs IN vs ANY
+
+EXISTS - Returns TRUE if the subquery returns at least one row.(More faster) . Handle nulls
+IN - to check if a value is in a list (Good for less values in the list)
+ANY - to check if any value in a list meets a condition used in comparision
+IN and ANY are more likly same.
+
+7 . Window function - 
+
+- Mysql default -> RANGE BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
+- Because during execution it will start from the first row and end at the current row 
+- For 'n'th row it has no knowlege about the n+m row (m could be 1,2,....)
+
+- But in LAST_VALUE and NTH_VALUE we need N+m row details so we use :
+   ROWS BETWEEN UNBOUNDED PRECEDING AND UNBOUNDED FOLLOWING
+
