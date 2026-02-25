@@ -1,4 +1,10 @@
 
+-- NULLIF -> to return null if two values are equal
+SELECT NULLIF(name, 'Doe') FROM Users;
+
+-- COALESCE -> to return the first non-null value from a list of values check
+SELECT COALESCE(order_id, quantity, 'Unknown') FROM order_items;
+
 -- GROUP_CONCAT -> to group the values into a string
 SELECT GROUP_CONCAT(name) FROM Users;
 

@@ -25,7 +25,7 @@ WITH ALUMINI AS (
     WHERE
         age>=27
 ),
-MAIN_CORSES AS (
+MAIN_COURSES AS (
     SELECT
         *
     FROM
@@ -34,4 +34,4 @@ MAIN_CORSES AS (
 SELECT
     *
 FROM
-    Courses;
+    MAIN_COURSES;

@@ -2,11 +2,6 @@ USE DB;
 
 DESCRIBE Users;
 
--- id      int     NO      PRI     NULL    auto_increment
--- name    varchar(255)    NO              NULL
--- phone_number    bigint  YES             NULL
--- age     int     NO              NULL
--- email   varchar(255)    NO      UNI     NULL
 -- INSERT based on the tables columns sequence
 INSERT INTO
     Users

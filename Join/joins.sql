@@ -17,8 +17,8 @@ orders o
 RIGHT JOIN customers c ON c.customer_id = o.customer_id;
 
 -- FULL JOIN -> to join two tables and the left and right table will have all the rows
--- MySQL does not support FULL JOIN 
--- FULL JOIN = LEFT JOIN + RIGHT JOIN
+-- MySQL does not support FULL JOIN directly
+-- We have to use FULL JOIN = LEFT JOIN + RIGHT JOIN
 
 SELECT * FROM customers c
 LEFT JOIN orders o ON c.customer_id = o.customer_id
